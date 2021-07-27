@@ -1,0 +1,255 @@
+// OVER 1200px screen-width
+$max-header-width: 1140px;
+// OVER 992px screen-width
+$big-header-width: 960px;
+// OVER 768px screen-width
+$md-header-width: 720px;
+// UNDER 768px screen-width
+// $sm-header-width: NOW ITS A HAMBURGER MENU;
+
+.nrel-header {
+  background: #fff;
+  display: block;
+  font-family: Roboto;
+  position: absolute;
+  width: 100%;
+  max-width: 100vw;
+  z-index: 100;
+
+  .vadr-header {
+    align-items: center;
+    display: flex;
+    height: 140px;
+    justify-content: space-between;
+    margin: auto;
+    padding: 0 15px;
+    // This value will change on breakpoints
+    max-width: $max-header-width;
+
+    .vadr-100-title {
+      font-weight: normal;
+      color: #212224;
+      font-size: 30px;
+      letter-spacing: 0.5px;
+      width: 70%;
+    }
+
+    .header-link {
+      z-index: 1;
+
+      .nrel-logo-image {
+        width: 280px;
+        position: relative;
+        top: -10px;
+      }
+    }
+  }
+
+  .menu-container {
+    width: 100%;
+    margin: auto;
+    background: #ededed;
+    border-top: 1px solid #d6d4d4;
+    height: 64px;
+    position: absolute;
+    top: 140px;
+
+    &.stick {
+      position: fixed;
+      top: 0;
+    }
+
+    .menu {
+      max-width: $max-header-width;
+      margin: auto;
+      position: relative;
+      right: 20px;
+
+      li {
+        background: #ededed;
+        height: 100%;
+        font-size: 14px;
+
+        &.current {
+          background: #5e6a71;
+          filter: brightness(1.1);
+
+          span,
+          a {
+            color: #fff;
+          }
+
+          .submenu-chevron > svg {
+            fill: #fff;
+          }
+
+          li {
+            background: #5e6a71;
+            &:hover {
+              filter: brightness(1.1);
+            }
+          }
+        }
+
+        div,
+        button,
+        span,
+        a {
+          color: #2f2f2f;
+          box-sizing: border-box;
+          height: 64px;
+          padding: 24px 25px;
+          width: 100%;
+          text-decoration: none;
+          font-size: 16px;
+          background: none;
+          border-radius: 0;
+          border: none;
+        }
+
+        button:hover,
+        span:hover,
+        a:hover {
+          color: #fff;
+          background: #5e6a71;
+          cursor: pointer;
+        }
+
+        &.auth a,
+        &.auth button {
+          color: #0a87d3;
+        }
+        &.auth a:hover,
+        &.auth button:hover {
+          color: #fff;
+          background: #0a87d3;
+        }
+        &.auth.current a,
+        &.auth.current button {
+          color: #fff;
+          background: #0a87d3;
+        }
+      }
+    }
+  }
+
+  &.slim {
+    .vadr-header {
+      height: 86px;
+
+      .header-link {
+        .nrel-logo-image {
+          width: 190px;
+        }
+      }
+    }
+
+    .menu-container {
+      top: 86px;
+
+      &.stick {
+        position: fixed;
+        top: 0;
+      }
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .vadr-header {
+      max-width: $big-header-width;
+    }
+
+    .menu-container {
+      .menu {
+        max-width: $big-header-width;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .vadr-header {
+      max-width: $md-header-width;
+    }
+
+    .menu-container {
+      .menu {
+        max-width: $md-header-width;
+      }
+    }
+  }
+
+  // MOBILE MENU
+  @media (max-width: 767px) {
+    // position: static;
+
+    &.mobile-nav {
+      .vadr-header {
+        height: max-content;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .vadr-100-title {
+          text-align: center;
+          width: 90%;
+          margin-bottom: 0.3em;
+        }
+
+        .header-link {
+          z-index: 0;
+        }
+      }
+
+      &.slim {
+        .vadr-header {
+          height: max-content;
+
+          .header-link {
+            .nrel-logo-image {
+              top: -10px;
+            }
+          }
+        }
+
+      }
+
+      .menu-bar {
+        z-index: 2;
+
+        &.stick,
+        &.open {
+          position: fixed;
+          top: 0;
+          transition: 0.3s;
+        }
+      }
+
+      .menu-container {
+        position: static;
+        overflow: hidden;
+
+        &.close {
+          height: 0px;
+          top: 100vh;
+        }
+
+        &.open {
+          transition: 0.3s;
+          height: 100vh;
+          position: fixed;
+          top: 44px;
+          background: #ededed;
+          overflow: hidden;
+          z-index: 2;
+        }
+
+        .menu {
+          position: static;
+          display: block;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

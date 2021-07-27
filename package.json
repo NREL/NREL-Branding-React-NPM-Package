@@ -1,0 +1,48 @@
+{
+  "name": "nrel-branding",
+  "version": "1.0.4",
+  "description": "NREL branding components",
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-url": "^6.0.0",
+    "@svgr/rollup": "^5.5.0",
+    "@types/prop-types": "^15.7.4",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.1.8",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.2.0",
+    "rollup": "^2.53.1",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-router-dom": ">=5.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aweissman11/NREL-branding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aweissman11/NREL-branding/issues"
+  },
+  "homepage": "https://github.com/aweissman11/NREL-branding#readme"
+}
