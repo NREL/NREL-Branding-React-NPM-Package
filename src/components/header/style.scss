@@ -154,6 +154,17 @@ $md-header-width: 720px;
     }
   }
 
+  @media print {
+    .menu-bar,
+    .menu-container {
+      display: none;
+
+      p {
+        display: none;
+      }
+    }
+  }
+
   @media (max-width: 1199px) {
     .vadr-header {
       max-width: $big-header-width;
@@ -211,7 +222,6 @@ $md-header-width: 720px;
             }
           }
         }
-
       }
 
       .menu-bar {

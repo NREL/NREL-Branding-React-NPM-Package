@@ -228,6 +228,13 @@
       display: flex !important;
     }
 
+    @media print {
+      .footertop,
+      .row.social-and-global-links {
+        display: none;
+      }
+    }
+
     @media (min-width: 576px) {
       .container {
         max-width: 540px;

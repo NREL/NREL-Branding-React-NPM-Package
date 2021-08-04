@@ -57,7 +57,7 @@ function NRELFooter({
         </div>
         <div className="footerbottom">
           <div className="container">
-            <div className="row">
+            <div className="row social-and-global-links">
               <div className="col-md-4 col-lg-5">
                 <div><a href={contactUrl}>Contact Us</a></div>
                 <div className="mt-2"><a href="http://www.nrel.gov/about/visiting-nrel.html">Visit</a></div>
