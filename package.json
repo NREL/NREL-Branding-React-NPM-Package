@@ -34,13 +34,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aweissman11/NREL-branding.git"
+    "url": "git+https://github.com/NREL/NREL-Branding-React-NPM-Package.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aweissman11/NREL-branding/issues"
+    "url": "https://github.com/NREL/NREL-Branding-React-NPM-Package/issues"
   },
-  "homepage": "https://github.com/aweissman11/NREL-branding#readme"
+  "homepage": "https://github.com/NREL/NREL-Branding-React-NPM-Package#readme"
 }
