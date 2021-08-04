@@ -15,10 +15,12 @@ import './style.scss';
 
 NRELFooter.propTypes = {
   className: PropTypes.string,
+  contact: PropTypes.string,
 }
 
 export type INRELFooterProps = {
   className?: string,
+  contact?: string,
 }
 
 /**
@@ -27,7 +29,10 @@ export type INRELFooterProps = {
  */
 function NRELFooter({
   className = '',
+  contact,
 }: INRELFooterProps) {
+  const contactUrl = contact ? contact : 'http://www.nrel.gov/webmaster.html';
+
   return (
     <div className={`nrel-footer-wrapper ${className}`}>
       <footer id="footer" className="hidden-print">
@@ -54,7 +59,7 @@ function NRELFooter({
           <div className="container">
             <div className="row">
               <div className="col-md-4 col-lg-5">
-                <div><a href="http://www.nrel.gov/webmaster.html">Contact Us</a></div>
+                <div><a href={contactUrl}>Contact Us</a></div>
                 <div className="mt-2"><a href="http://www.nrel.gov/about/visiting-nrel.html">Visit</a></div>
                 <div className="mt-2"><a href="http://www.nrel.gov/news/subscribe.html">Subscribe</a></div>
                 <div className="mt-3">
