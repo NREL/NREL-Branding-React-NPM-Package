@@ -20,7 +20,9 @@ NREL branding components
       - [Props](#props-5)
 
 ## Installation
-`npm i nrel-branding`
+`npm i nrel-branding-react`
+
+Find this on the NPM registry at https://www.npmjs.com/package/nrel-branding-react
 
 ## Components
 ### Header
