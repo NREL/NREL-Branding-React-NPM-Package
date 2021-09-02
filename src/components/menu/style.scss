@@ -13,7 +13,7 @@
         display: inline-block;
       }
 
-      .submenu-chevron > svg {
+      .submenu-chevron {
         width: 10px;
         height: 10px;
         margin-left: 5px;
@@ -42,7 +42,7 @@
       }
 
       &:hover {
-        .submenu-chevron > svg {
+        .submenu-chevron {
           transform: rotate(90deg);
         }
       }
@@ -74,7 +74,7 @@
           display: block;
         }
 
-        .submenu-chevron > svg {
+        .submenu-chevron {
           transform: rotate(270deg);
         }
       }
