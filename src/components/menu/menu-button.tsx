@@ -5,7 +5,7 @@ import * as PropTypes from 'prop-types';
 import './style.scss';
 
 MenuButton.propTypes = {
-  toggleMenu: PropTypes.func.isRequired,
+  toggleMenu: PropTypes.func,
   children: PropTypes.node,
   className: PropTypes.string,
   onClick: PropTypes.func,
@@ -36,7 +36,7 @@ function MenuButton({
 
   const handleClick = (e: MouseEvent): void => {
     onClick(e);
-    toggleMenu();
+    if (toggleMenu) toggleMenu();
   }
 
   return (
