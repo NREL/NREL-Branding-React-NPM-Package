@@ -52,7 +52,7 @@ function MenuLink({
 
   return (
     <li className={`menu-item ${isCurrentClass} ${className}`} onClick={handleClick}>
-      <span>{children}</span>
+      <span>{children} NOTE</span>
     </li>
   );
 }
