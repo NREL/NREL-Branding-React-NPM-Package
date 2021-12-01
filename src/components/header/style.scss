@@ -15,6 +15,8 @@ $md-header-width: 720px;
   width: 100%;
   max-width: 100vw;
   z-index: 100;
+  position: unset;
+  height: 100%;
 
   .vadr-header {
     align-items: center;
@@ -185,6 +187,30 @@ $md-header-width: 720px;
     .menu-container {
       .menu {
         max-width: $md-header-width;
+      }
+    }
+  }
+
+  //Position unset breaks mobile nav so only apply styling when not using mobile nav
+  @media(min-width: 768px) {
+
+    .menu-container{
+      position: unset;
+      height: 100%;
+
+      .menu-item{
+        width: max-content;
+        span{
+          width: max-content;
+        }
+      }
+
+      .sub-menu {
+
+        .menu-item{
+          display: flex;
+          width: max-content;
+        }
       }
     }
   }
