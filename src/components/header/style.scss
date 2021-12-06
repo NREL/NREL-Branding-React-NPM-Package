@@ -191,8 +191,8 @@ $md-header-width: 720px;
   }
 
   @media(min-width: 768px) {
-
     .menu-container{
+      position: unset;
       height: 100%;
 
       .menu-item{
