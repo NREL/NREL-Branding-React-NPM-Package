@@ -34,7 +34,7 @@ export type IMenuLinkProps = {
 function MenuLink({
   children,
   to,
-  className,
+  className = '',
   isCurrent,
   toggleMenu,
 }: IMenuLinkProps) {
