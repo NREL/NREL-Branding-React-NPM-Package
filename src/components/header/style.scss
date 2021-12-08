@@ -97,6 +97,7 @@ $md-header-width: 720px;
         button,
         span,
         a {
+          white-space: nowrap;
           color: #2f2f2f;
           box-sizing: border-box;
           height: 64px;
