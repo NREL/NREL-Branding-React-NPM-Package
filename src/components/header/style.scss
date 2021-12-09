@@ -191,26 +191,6 @@ $md-header-width: 720px;
     }
   }
 
-  @media(min-width: 768px) {
-    .menu-container{
-
-      .menu-item{
-        width: max-content;
-        span{
-          width: max-content;
-        }
-      }
-
-      .sub-menu {
-
-        .menu-item{
-          display: flex;
-          width: max-content;
-        }
-      }
-    }
-  }
-
   // MOBILE MENU
   @media (max-width: 767px) {
     // position: static;

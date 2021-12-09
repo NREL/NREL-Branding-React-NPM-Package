@@ -64,6 +64,25 @@
     }
   }
 
+  @media (min-width: 768px) {
+    ul.menu {
+      > li.menu-item {
+        width: max-content;
+        span{
+          width: max-content;
+        }
+
+        .sub-menu {
+          width: auto !important;
+          .menu-item{
+            display: flex;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+
   // MOBILE MENU
   @media (max-width: 767px) {
     ul.menu {
