@@ -46,6 +46,7 @@ function SubMenu({
 }: ISubMenuProps) {
   const location = useLocation();
   const [showItems, setShowItems] = useState(false);
+  const [showSubMenu, setShowSubMenu] = useState(false);
 
   /**
    * Check to see if we on on the page one of the children goes to
@@ -66,6 +67,8 @@ function SubMenu({
    */
   const toggleShowItems = () => setShowItems(!showItems);
 
+  const handleShowSubMenu = (newState: boolean) => () => setShowSubMenu(newState)
+
 
   let isCurrent = childIsCurrent() ? 'current' : '';
   // On mobile, the sub-menu should stay open if a user is on one of the links in that menu
@@ -73,13 +76,16 @@ function SubMenu({
   return (
     <li
       onClick={toggleShowItems}
+      onMouseEnter={handleShowSubMenu(true)}
+      onMouseLeave={handleShowSubMenu(false)}
+      onTouchStart={handleShowSubMenu(!showSubMenu)}
       className={`menu-item ${isCurrent} ${className} ${showItemsClass}`}
     >
       <span>
         {label}
-        <ChevronLeft className="submenu-chevron" />
+        <ChevronLeft style={{transform: showSubMenu ? 'rotate(90deg)' : undefined}} className="submenu-chevron" />
       </span>
-      <Menu isSubMenu>
+      <Menu style={{display: showSubMenu? 'flex' : undefined}} isSubMenu>
         {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
         {Children.map(children, child => (
           cloneElement(child as ReactElement, { toggleMenu })

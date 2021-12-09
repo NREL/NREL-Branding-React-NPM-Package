@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useState, useEffect, useRef, ReactNode, Children, cloneElement, ReactElement } from 'react';
 import * as PropTypes from 'prop-types';
-
 import './style.scss';
 
 Menu.propTypes = {
+  style: PropTypes.object,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   isSubMenu: PropTypes.bool,
@@ -17,6 +17,7 @@ type containerType = {
 }
 
 export type IMenuProps = {
+  style?: React.CSSProperties,
   children: ReactNode,
   className?: string,
   isSubMenu?: boolean,
@@ -46,6 +47,7 @@ function Menu({
   className = '',
   scrollContainerId,
   noStick,
+  style,
 }: IMenuProps) {
   const containerRef: containerType = useRef(window);
 
@@ -85,12 +87,13 @@ function Menu({
   return (<>
     {
       isSubMenu ?
-        <ul className={`${menuClass} ${className}`}>
+        <ul style={style} className={`${menuClass} ${className}`}>
           {children}
         </ul >
         :
         <>
           <div
+            style={style}
             className={`menu-bar ${stickyClass} ${menuOpenClass}`}
             onClick={toggleMenu}
           >

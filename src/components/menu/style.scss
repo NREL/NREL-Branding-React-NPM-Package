@@ -40,16 +40,6 @@
           }
         }
       }
-
-      &:hover {
-        .submenu-chevron {
-          transform: rotate(90deg);
-        }
-      }
-
-      &:hover > ul.sub-menu {
-        display: flex;
-      }
     }
 
     > li.menu-spacer {
