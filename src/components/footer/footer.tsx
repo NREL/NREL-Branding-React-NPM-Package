@@ -64,7 +64,7 @@ function NRELFooter({
                 <div className="mt-2"><a href="http://www.nrel.gov/news/subscribe.html">Subscribe</a></div>
                 <div className="mt-3">
                   <ul className="social-links list-inline">
-                    <li className="list-inline-item"><a href="https://www.facebook.com/nationalrenewableenergylab" rel="noopener noreferrer" target="_blank" arial-label="Follow NREL on Facebook">
+                    <li className="list-inline-item"><a href="https://www.facebook.com/nationalrenewableenergylab" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Facebook">
                       <img
                         className="social-svg"
                         src={facebook}
