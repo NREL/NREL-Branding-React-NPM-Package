@@ -42,14 +42,13 @@
         }
       }
 
-      &:hover {
+      &:hover,&.active {
         .submenu-chevron {
           transform: rotate(90deg);
         }
-      }
-
-      &:hover > ul.sub-menu {
-        display: flex;
+        ul.sub-menu {
+          display: flex;
+        }
       }
     }
 

@@ -46,6 +46,7 @@ function SubMenu({
 }: ISubMenuProps) {
   const location = useLocation();
   const [showItems, setShowItems] = useState(false);
+  const [active, setActive] = useState(false)
 
   /**
    * Check to see if we on on the page one of the children goes to
@@ -66,14 +67,24 @@ function SubMenu({
    */
   const toggleShowItems = () => setShowItems(!showItems);
 
+  React.useEffect(() => {
+    const eventHandler = () => active && setActive(false);
+    document.addEventListener('click', eventHandler)
+    return () => {
+      document.removeEventListener('click', eventHandler)
+    }
+  }, [active])
+
 
   let isCurrent = childIsCurrent() ? 'current' : '';
   // On mobile, the sub-menu should stay open if a user is on one of the links in that menu
   let showItemsClass = showItems || childIsCurrent() ? 'show' : '';
   return (
     <li
+      tabIndex={0}
+      onKeyDown={e => e.key === 'Enter' && setActive(!active)}
       onClick={toggleShowItems}
-      className={`menu-item ${isCurrent} ${className} ${showItemsClass}`}
+      className={`menu-item ${isCurrent} ${className} ${active ? 'active' : ''} ${showItemsClass}`}
     >
       <span>
         {label}
