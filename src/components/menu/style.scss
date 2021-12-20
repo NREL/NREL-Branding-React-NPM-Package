@@ -3,6 +3,7 @@
   ul.sub-menu {
     display: flex;
     justify-content: flex-start;
+    padding-left: 0px;
 
     > li.menu-item {
       list-style-type: none;
