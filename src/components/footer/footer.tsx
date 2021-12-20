@@ -66,30 +66,35 @@ function NRELFooter({
                   <ul className="social-links list-inline">
                     <li className="list-inline-item"><a href="https://www.facebook.com/nationalrenewableenergylab" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Facebook">
                       <img
+                        aria-hidden
                         className="social-svg"
                         src={facebook}
                       />
                     </a></li>
                     <li className="list-inline-item"><a href="https://www.instagram.com/nationalrenewableenergylab/" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Instagram">
                       <img
+                        aria-hidden
                         className="social-svg"
                         src={instagram}
                       />
                     </a></li>
                     <li className="list-inline-item"><a href="https://www.linkedin.com/company/national-renewable-energy-laboratory" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Linked In">
                       <img
+                        aria-hidden
                         className="social-svg"
                         src={linkedin}
                       />
                     </a></li>
                     <li className="list-inline-item"><a href="https://www.youtube.com/user/NRELPR/" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on YouTube">
                       <img
+                        aria-hidden
                         className="social-svg"
                         src={youtube}
                       />
                     </a></li>
                     <li className="list-inline-item"><a href="https://twitter.com/nrel/" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Twitter">
                       <img
+                        aria-hidden
                         className="social-svg"
                         src={twitter}
                       />
