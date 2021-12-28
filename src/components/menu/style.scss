@@ -3,6 +3,7 @@
   ul.sub-menu {
     display: flex;
     justify-content: flex-start;
+    padding-left: 0px;
 
     > li.menu-item {
       list-style-type: none;
@@ -40,6 +41,15 @@
           }
         }
       }
+
+      &.active {
+        .submenu-chevron {
+          transform: rotate(90deg);
+        }
+        ul.sub-menu {
+          display: flex;
+        }
+      }
     }
 
     > li.menu-spacer {
@@ -67,6 +77,9 @@
           .menu-item{
             display: flex;
             width: auto;
+            span {
+              flex: 1;
+            }
           }
         }
       }

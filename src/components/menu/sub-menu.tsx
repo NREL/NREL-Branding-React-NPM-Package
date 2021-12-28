@@ -47,6 +47,7 @@ function SubMenu({
   const location = useLocation();
   const [showItems, setShowItems] = useState(false);
   const [showSubMenu, setShowSubMenu] = useState(false);
+  const [active, setActive] = useState(false)
 
   /**
    * Check to see if we on on the page one of the children goes to
@@ -68,6 +69,13 @@ function SubMenu({
   const toggleShowItems = () => setShowItems(!showItems);
 
   const handleShowSubMenu = (newState: boolean) => () => setShowSubMenu(newState)
+  React.useEffect(() => {
+    const eventHandler = () => active && setActive(false);
+    document.addEventListener('click', eventHandler)
+    return () => {
+      document.removeEventListener('click', eventHandler)
+    }
+  }, [active])
 
 
   let isCurrent = childIsCurrent() ? 'current' : '';
@@ -75,11 +83,13 @@ function SubMenu({
   let showItemsClass = showItems || childIsCurrent() ? 'show' : '';
   return (
     <li
+      tabIndex={0}
+      onKeyDown={e => e.key === 'Enter' && setActive(!active)}
       onClick={toggleShowItems}
       onMouseEnter={handleShowSubMenu(true)}
       onMouseLeave={handleShowSubMenu(false)}
       onTouchStart={handleShowSubMenu(!showSubMenu)}
-      className={`menu-item ${isCurrent} ${className} ${showItemsClass}`}
+      className={`menu-item ${isCurrent} ${className} ${active ? 'active' : ''} ${showItemsClass}`}
     >
       <span>
         {label}

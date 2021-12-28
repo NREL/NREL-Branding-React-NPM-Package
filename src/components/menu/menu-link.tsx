@@ -51,7 +51,7 @@ function MenuLink({
   }
 
   return (
-    <li className={`menu-item ${isCurrentClass} ${className}`} onClick={handleClick}>
+    <li tabIndex={0} onKeyDown={(e) => e.key === "Enter" && handleClick()} className={`menu-item ${isCurrentClass} ${className}`} onClick={handleClick}>
       <span>{children}</span>
     </li>
   );
