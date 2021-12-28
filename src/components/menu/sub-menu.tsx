@@ -84,18 +84,18 @@ function SubMenu({
   return (
     <li
       tabIndex={0}
-      onKeyDown={e => e.key === 'Enter' && setActive(!active)}
+      onKeyDown={e => (['Enter', ' '].includes(e.key)) && setActive(!active)}
       onClick={toggleShowItems}
       onMouseEnter={handleShowSubMenu(true)}
       onMouseLeave={handleShowSubMenu(false)}
       onTouchStart={handleShowSubMenu(!showSubMenu)}
-      className={`menu-item ${isCurrent} ${className} ${active ? 'active' : ''} ${showItemsClass}`}
+      className={`menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
     >
       <span>
         {label}
-        <ChevronLeft style={{transform: showSubMenu ? 'rotate(90deg)' : undefined}} className="submenu-chevron" />
+        <ChevronLeft className="submenu-chevron" />
       </span>
-      <Menu style={{display: showSubMenu? 'flex' : undefined}} isSubMenu>
+      <Menu isSubMenu>
         {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
         {Children.map(children, child => (
           cloneElement(child as ReactElement, { toggleMenu })
