@@ -46,6 +46,7 @@ function SubMenu({
 }: ISubMenuProps) {
   const location = useLocation();
   const [showItems, setShowItems] = useState(false);
+  const [showSubMenu, setShowSubMenu] = useState(false);
   const [active, setActive] = useState(false)
 
   /**
@@ -67,6 +68,7 @@ function SubMenu({
    */
   const toggleShowItems = () => setShowItems(!showItems);
 
+  const handleShowSubMenu = (newState: boolean) => () => setShowSubMenu(newState)
   React.useEffect(() => {
     const eventHandler = () => active && setActive(false);
     document.addEventListener('click', eventHandler)
@@ -82,9 +84,12 @@ function SubMenu({
   return (
     <li
       tabIndex={0}
-      onKeyDown={e => e.key === 'Enter' && setActive(!active)}
+      onKeyDown={e => (['Enter', ' '].includes(e.key)) && setActive(!active)}
       onClick={toggleShowItems}
-      className={`menu-item ${isCurrent} ${className} ${active ? 'active' : ''} ${showItemsClass}`}
+      onMouseEnter={handleShowSubMenu(true)}
+      onMouseLeave={handleShowSubMenu(false)}
+      onTouchStart={handleShowSubMenu(!showSubMenu)}
+      className={`menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
     >
       <span>
         {label}
