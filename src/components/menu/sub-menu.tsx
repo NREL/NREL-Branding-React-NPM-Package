@@ -29,6 +29,8 @@ export type ISubMenuProps = {
   toggleMenu?: () => void,
 }
 
+const SUPPORTED_KEYS = ['Enter', ' '];
+
 /**
  * Menu item holding another menu.
  *
@@ -68,6 +70,19 @@ function SubMenu({
    */
   const toggleShowItems = () => setShowItems(!showItems);
 
+  React.useEffect(() => {
+    const handleCloseMenu = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActive(false);
+      if (SUPPORTED_KEYS.includes(e.key) && active) {
+        setActive(false)
+      }
+    }
+    document.addEventListener('keydown', handleCloseMenu)
+    return () => {
+      document.removeEventListener('keydown', handleCloseMenu)
+    }
+  }, [active])
+
   const handleShowSubMenu = (newState: boolean) => () => setShowSubMenu(newState)
   React.useEffect(() => {
     const eventHandler = () => active && setActive(false);
@@ -84,7 +99,7 @@ function SubMenu({
   return (
     <li
       tabIndex={0}
-      onKeyDown={e => (['Enter', ' '].includes(e.key)) && setActive(!active)}
+      onKeyDown={e => (SUPPORTED_KEYS.includes(e.key)) && setActive(!active)}
       onClick={toggleShowItems}
       onMouseEnter={handleShowSubMenu(true)}
       onMouseLeave={handleShowSubMenu(false)}
