@@ -29,7 +29,7 @@ export type ISubMenuProps = {
   toggleMenu?: () => void,
 }
 
-const SUPPORTED_KEYS = ['Enter', ' '];
+const SUPPORTED_KEYS = ['Enter'];
 
 /**
  * Menu item holding another menu.
