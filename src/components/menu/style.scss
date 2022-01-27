@@ -68,13 +68,13 @@
     ul.menu {
       > li.menu-item {
         width: max-content;
-        span{
+        span {
           width: max-content;
         }
 
         .sub-menu {
           width: auto !important;
-          .menu-item{
+          .menu-item {
             display: flex;
             width: auto;
             span {
@@ -90,14 +90,13 @@
   @media (max-width: 767px) {
     ul.menu {
       > li.menu-item.show {
-        height: 192px;
-
         .sub-menu {
           display: block;
+          position: unset;
         }
 
         .submenu-chevron {
-          transform: rotate(270deg);
+          transform: rotate(90deg);
         }
       }
     }

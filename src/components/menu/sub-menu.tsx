@@ -68,7 +68,16 @@ function SubMenu({
   /**
    * Only used on Mobile
    */
-  const toggleShowItems = () => setShowItems(!showItems);
+  const toggleShowItems = () => {
+    // avoid edge case of showItems = false and showSubMenu = true
+    if(showSubMenu && showItems){
+      setShowSubMenu(false);
+      setShowItems(false);
+    }
+    else{
+      setShowItems(!showItems);
+    }
+  }
 
   React.useEffect(() => {
     const handleCloseMenu = (e: KeyboardEvent) => {
