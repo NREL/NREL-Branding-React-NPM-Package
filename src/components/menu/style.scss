@@ -83,13 +83,20 @@
           }
         }
       }
+      li.desktop-menu.menu-item {
+        display: unset;
+      }
+      li.mobile-menu.menu-item {
+        display: none;
+      }
     }
   }
 
   // MOBILE MENU
   @media (max-width: 767px) {
     ul.menu {
-      > li.menu-item.show {
+      > li.menu-item.show,
+      > li.menu-item.active {
         .sub-menu {
           display: block;
           position: unset;
@@ -98,6 +105,12 @@
         .submenu-chevron {
           transform: rotate(90deg);
         }
+      }
+      li.mobile-menu.menu-item {
+        display: unset;
+      }
+      li.desktop-menu.menu-item {
+        display: none;
       }
     }
 

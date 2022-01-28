@@ -106,26 +106,50 @@ function SubMenu({
   // On mobile, the sub-menu should stay open if a user is on one of the links in that menu
   let showItemsClass = showItems || childIsCurrent() ? 'show' : '';
   return (
-    <li
-      tabIndex={0}
-      onKeyDown={e => (SUPPORTED_KEYS.includes(e.key)) && setActive(!active)}
-      onClick={toggleShowItems}
-      onMouseEnter={handleShowSubMenu(true)}
-      onMouseLeave={handleShowSubMenu(false)}
-      onTouchStart={handleShowSubMenu(!showSubMenu)}
-      className={`menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
-    >
-      <span>
-        {label}
-        <ChevronLeft className="submenu-chevron" />
-      </span>
-      <Menu isSubMenu>
-        {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
-        {Children.map(children, child => (
-          cloneElement(child as ReactElement, { toggleMenu })
-        ))}
-      </Menu>
-    </li>
+    <>
+      {/* desktop submenu */}
+      <li
+        tabIndex={0}
+        onKeyDown={e => (SUPPORTED_KEYS.includes(e.key)) && setActive(!active)}
+        onClick={toggleShowItems}
+        onMouseEnter={handleShowSubMenu(true)}
+        onMouseLeave={handleShowSubMenu(false)}
+        onTouchStart={handleShowSubMenu(!showSubMenu)}
+        className={`desktop-menu menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
+      >
+        <span>
+          {label}
+          <ChevronLeft className="submenu-chevron" />
+        </span>
+        <Menu isSubMenu>
+          {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
+          {Children.map(children, child => (
+            cloneElement(child as ReactElement, { toggleMenu })
+          ))}
+        </Menu>
+      </li>
+
+      {/* mobile submenu */}
+      <li
+        tabIndex={0}
+        onKeyDown={e => (SUPPORTED_KEYS.includes(e.key)) && setActive(!active)}
+        onClick={toggleShowItems}
+        onTouchStart={handleShowSubMenu(!showSubMenu)}
+        className={`mobile-menu menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
+      >
+        <span>
+          {label}
+          <ChevronLeft className="submenu-chevron" />
+        </span>
+        <Menu isSubMenu>
+          {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
+          {Children.map(children, child => (
+            cloneElement(child as ReactElement, { toggleMenu })
+          ))}
+        </Menu>
+      </li>
+
+    </>
   );
 }
 
