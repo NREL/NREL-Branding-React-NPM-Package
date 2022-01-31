@@ -83,12 +83,6 @@
           }
         }
       }
-      li.desktop-menu.menu-item {
-        display: list-item;
-      }
-      li.mobile-menu.menu-item {
-        display: none;
-      }
     }
   }
 
@@ -105,12 +99,6 @@
         .submenu-chevron {
           transform: rotate(90deg);
         }
-      }
-      li.mobile-menu.menu-item {
-        display: list-item;
-      }
-      li.desktop-menu.menu-item {
-        display: none;
       }
     }
 

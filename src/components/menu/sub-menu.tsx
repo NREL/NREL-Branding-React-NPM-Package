@@ -92,7 +92,18 @@ function SubMenu({
     }
   }, [active])
 
-  const handleShowSubMenu = (newState: boolean) => () => setShowSubMenu(newState)
+  const handleShowSubMenu = (newState: boolean, isHoverEvent: boolean) => () => {
+    if(!isHoverEvent){
+       setShowSubMenu(newState)
+    }
+    else{
+      const {innerWidth} = window;
+      // do no op if on mobile screen size and a hover event
+      if(innerWidth > 767){
+        setShowSubMenu(newState)
+      }
+    }
+  }
   React.useEffect(() => {
     const eventHandler = () => active && setActive(false);
     document.addEventListener('click', eventHandler)
@@ -112,30 +123,10 @@ function SubMenu({
         tabIndex={0}
         onKeyDown={e => (SUPPORTED_KEYS.includes(e.key)) && setActive(!active)}
         onClick={toggleShowItems}
-        onMouseEnter={handleShowSubMenu(true)}
-        onMouseLeave={handleShowSubMenu(false)}
-        onTouchStart={handleShowSubMenu(!showSubMenu)}
+        onMouseEnter={handleShowSubMenu(true, true)}
+        onMouseLeave={handleShowSubMenu(false, true)}
+        onTouchStart={handleShowSubMenu(!showSubMenu, false)}
         className={`desktop-menu menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
-      >
-        <span>
-          {label}
-          <ChevronLeft className="submenu-chevron" />
-        </span>
-        <Menu isSubMenu>
-          {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
-          {Children.map(children, child => (
-            cloneElement(child as ReactElement, { toggleMenu })
-          ))}
-        </Menu>
-      </li>
-
-      {/* mobile submenu */}
-      <li
-        tabIndex={0}
-        onKeyDown={e => (SUPPORTED_KEYS.includes(e.key)) && setActive(!active)}
-        onClick={toggleShowItems}
-        onTouchStart={handleShowSubMenu(!showSubMenu)}
-        className={`mobile-menu menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
       >
         <span>
           {label}
