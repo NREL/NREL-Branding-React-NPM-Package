@@ -248,11 +248,11 @@ $md-header-width: 720px;
 
         &.open {
           transition: 0.3s;
-          height: 100vh;
+          height: calc(100vh - 43px);
           position: fixed;
-          top: 44px;
+          top: 43px;
           background: #ededed;
-          overflow: hidden;
+          overflow: auto;
           z-index: 2;
         }
 

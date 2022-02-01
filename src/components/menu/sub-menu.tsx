@@ -68,7 +68,15 @@ function SubMenu({
   /**
    * Only used on Mobile
    */
-  const toggleShowItems = () => setShowItems(!showItems);
+  const toggleShowItems = () => {
+    // avoid edge case of showItems = false and showSubMenu = true
+    if(showSubMenu && showItems){
+      setShowSubMenu(false);
+      setShowItems(false);
+    } else {
+      setShowItems(!showItems);
+    }
+  }
 
   React.useEffect(() => {
     const handleCloseMenu = (e: KeyboardEvent) => {
@@ -83,7 +91,18 @@ function SubMenu({
     }
   }, [active])
 
-  const handleShowSubMenu = (newState: boolean) => () => setShowSubMenu(newState)
+  const handleShowSubMenu = (newState: boolean, isHoverEvent: boolean) => () => {
+    if(!isHoverEvent){
+       setShowSubMenu(newState)
+    }
+    else{
+      const {innerWidth} = window;
+      // do no op if on mobile screen size and a hover event
+      if(innerWidth > 767){
+        setShowSubMenu(newState)
+      }
+    }
+  }
   React.useEffect(() => {
     const eventHandler = () => active && setActive(false);
     document.addEventListener('click', eventHandler)
@@ -97,26 +116,29 @@ function SubMenu({
   // On mobile, the sub-menu should stay open if a user is on one of the links in that menu
   let showItemsClass = showItems || childIsCurrent() ? 'show' : '';
   return (
-    <li
-      tabIndex={0}
-      onKeyDown={e => (SUPPORTED_KEYS.includes(e.key)) && setActive(!active)}
-      onClick={toggleShowItems}
-      onMouseEnter={handleShowSubMenu(true)}
-      onMouseLeave={handleShowSubMenu(false)}
-      onTouchStart={handleShowSubMenu(!showSubMenu)}
-      className={`menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
-    >
-      <span>
-        {label}
-        <ChevronLeft className="submenu-chevron" />
-      </span>
-      <Menu isSubMenu>
-        {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
-        {Children.map(children, child => (
-          cloneElement(child as ReactElement, { toggleMenu })
-        ))}
-      </Menu>
-    </li>
+    <>
+      {/* desktop submenu */}
+      <li
+        tabIndex={0}
+        onKeyDown={e => (SUPPORTED_KEYS.includes(e.key)) && setActive(!active)}
+        onClick={toggleShowItems}
+        onMouseEnter={handleShowSubMenu(true, true)}
+        onMouseLeave={handleShowSubMenu(false, true)}
+        onTouchStart={handleShowSubMenu(!showSubMenu, false)}
+        className={`desktop-menu menu-item ${isCurrent} ${className} ${active || showSubMenu ? 'active' : ''} ${showItemsClass}`}
+      >
+        <span>
+          {label}
+          <ChevronLeft className="submenu-chevron" />
+        </span>
+        <Menu isSubMenu>
+          {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
+          {Children.map(children, child => (
+            cloneElement(child as ReactElement, { toggleMenu })
+          ))}
+        </Menu>
+      </li>
+    </>
   );
 }
 
