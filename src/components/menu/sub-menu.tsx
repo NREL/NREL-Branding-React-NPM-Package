@@ -73,8 +73,7 @@ function SubMenu({
     if(showSubMenu && showItems){
       setShowSubMenu(false);
       setShowItems(false);
-    }
-    else{
+    } else {
       setShowItems(!showItems);
     }
   }
