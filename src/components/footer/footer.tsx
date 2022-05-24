@@ -124,12 +124,12 @@ function NRELFooter({
                   <a href="https://www.allianceforsustainableenergy.org/">
                     <img className="mr-5" src={AllianceLogo} alt="Alliance for Sustainable Energy, LLC" />
                   </a>
-                  <a href="https://energy.gov">
+                  <a href="https://www.energy.gov">
                     <img src={DoeLogo} alt="U.S. Department of Energy" />
                   </a>
                 </div>
                 <div className="col-12 col-sm-7">
-                  <p className="nrel-attr">The National Renewable Energy Laboratory is a national laboratory of the <a href="https://energy.gov/">U.S. Department of Energy</a>, <a href="https://energy.gov/eere/office-energy-efficiency-renewable-energy">Office of Energy Efficiency and Renewable Energy</a>, operated by the <a href="https://www.allianceforsustainableenergy.org/">Alliance for Sustainable Energy LLC</a>.</p>
+                  <p className="nrel-attr">The National Renewable Energy Laboratory is a national laboratory of the <a href="https://www.energy.gov/">U.S. Department of Energy</a>, <a href="https://www.energy.gov/eere/office-energy-efficiency-renewable-energy">Office of Energy Efficiency and Renewable Energy</a>, operated by the <a href="https://www.allianceforsustainableenergy.org/">Alliance for Sustainable Energy LLC</a>.</p>
                 </div>
               </div>
             </div>
