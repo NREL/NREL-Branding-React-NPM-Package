@@ -31,7 +31,7 @@ function NRELFooter({
   className = '',
   contact,
 }: INRELFooterProps) {
-  const contactUrl = contact ? contact : 'http://www.nrel.gov/webmaster.html';
+  const contactUrl = contact ? contact : 'mailto:maps.help@nrel.gov';
 
   return (
     <div className={`nrel-footer-wrapper ${className}`}>
