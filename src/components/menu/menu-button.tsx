@@ -16,6 +16,7 @@ export type IMenuButtonProps = {
   onClick: (event: MouseEvent) => {},
   toggleMenu: () => void,
   className?: string,
+  buttonProps?: any,
 }
 
 /**
@@ -26,12 +27,14 @@ export type IMenuButtonProps = {
  * @param {function} toggleMenu Function to close menu (only used in mobile) passed from menu component in package
  * @param {function}
  * @param {string} children JSX of HTML elements, or in most cases just text
+ * @param {any} buttonProps Additional props to be passed to the button element
  */
 function MenuButton({
   toggleMenu,
   children,
   onClick,
-  className = ''
+  className = '',
+  buttonProps
 }: IMenuButtonProps) {
 
   const handleClick = (e: MouseEvent): void => {
@@ -41,7 +44,7 @@ function MenuButton({
 
   return (
     <li className={`menu-item ${className}`} onClick={handleClick}>
-      <button>{children}</button>
+      <button {...buttonProps}>{children}</button>
     </li>
   );
 }
