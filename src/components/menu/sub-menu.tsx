@@ -31,6 +31,20 @@ export type ISubMenuProps = {
 
 const SUPPORTED_KEYS = ['Enter'];
 
+const arrayIsCurrent = (children: React.ReactNode, locationPathname: string, includeDescendants: boolean ): boolean => {
+  return Children.toArray(children).some(child => {
+    if (isValidElement(child)) {
+      const success = child?.props.to === location.pathname
+      if (includeDescendants && child?.props?.children) {
+        return success || arrayIsCurrent(child.props.children, locationPathname, includeDescendants)
+      } else {
+        return success;
+      }
+    }
+    return false;
+  });
+}
+
 /**
  * Menu item holding another menu.
  *
@@ -54,21 +68,14 @@ function SubMenu({
   /**
    * Check to see if we on on the page one of the children goes to
   */
-  const childIsCurrent = (): boolean => {
-    const childrenArray = Children.toArray(children);
-
-    return childrenArray.some(child => {
-      if (isValidElement(child)) {
-        return child?.props.to === location.pathname
-      }
-      return false;
-    });
+  const childIsCurrent = (includeDescendants: boolean): boolean => {
+    return arrayIsCurrent(children, location.pathname, includeDescendants)
   }
 
   /**
    * Only used on Mobile
    */
-  const toggleShowItems = () => {
+  const toggleShowItems: React.MouseEventHandler<HTMLLIElement>  = () => { 
     // avoid edge case of showItems = false and showSubMenu = true
     if(showSubMenu && showItems){
       setShowSubMenu(false);
@@ -112,9 +119,9 @@ function SubMenu({
   }, [active])
 
 
-  let isCurrent = childIsCurrent() ? 'current' : '';
+  let isCurrent = childIsCurrent(true) ? 'current' : '';
   // On mobile, the sub-menu should stay open if a user is on one of the links in that menu
-  let showItemsClass = showItems || childIsCurrent() ? 'show' : '';
+  let showItemsClass = showItems || childIsCurrent(true) ? 'show' : '';
   return (
     <>
       {/* desktop submenu */}
