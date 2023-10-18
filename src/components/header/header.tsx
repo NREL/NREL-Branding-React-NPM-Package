@@ -14,26 +14,26 @@ NRELHeader.propTypes = {
 }
 
 export type INRELHeaderProps = {
+  /** The title of the app (can be a string or JSX) */
   appTitle: string,
+  /** Add a class to the header to be used for styling */
   className?: string,
+  /** The source of the logo image file. This should probably live in the public dir of the app */
   logoSrc?: string,
+  /** A collection of li items to be rendered as navigational items */
   children?: ReactNode,
+  /**
+   * Boolean for slimmer headers. Mostly used for data-viewer pages
+   */
   isSlim?: boolean,
+  /** Boolean determining if the menu bar should not be sticky to the top of the page */
   noStick?: boolean,
+  /** Boolean used to turn on a mobile nav when in mobile resolutions */
   hasMobileNav?: boolean,
 }
 
 /**
  * Renders a comms friendly header
- *
- * @param {object} props - React props passed to this component
- * @param {string} appTitle - The title of the app (can be a string or JSX)
- * @param {string} className - Add a class to the header to be used for styling
- * @param {string} logoSrc - The source of the logo image file. This should probably live in the public dir of the app
- * @param {node} children - A collection of li items to be rendered as navigational items
- * @param {boolean} isSlim Boolean for slimmer headers. Mostly used for data-viewer pages
- * @param {boolean} noStick Boolean determining if the menu bar should not be sticky to the top of the page
- * @param {boolean} hasMobileNav Boolean used to turn on a mobile nav when in mobile resolutions
  */
 function NRELHeader({
   appTitle,
