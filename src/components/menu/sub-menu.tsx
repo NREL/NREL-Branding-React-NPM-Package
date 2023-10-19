@@ -14,6 +14,7 @@ import Menu from './menu';
 import './style.scss';
 
 import { ReactComponent as ChevronLeft } from './chevron-left.svg';
+import MenuContext from './menu-context';
 
 SubMenu.propTypes = {
   children: PropTypes.node.isRequired,
@@ -50,6 +51,8 @@ function SubMenu({
   const [showItems, setShowItems] = useState(false);
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [active, setActive] = useState(false)
+  const hideMenuTimeoutRef = React.useRef<ReturnType<typeof setTimeout>>();
+  const {menuCloseDelay} = React.useContext(MenuContext);
 
   /**
    * Check to see if we on on the page one of the children goes to
@@ -99,7 +102,15 @@ function SubMenu({
       const {innerWidth} = window;
       // do no op if on mobile screen size and a hover event
       if(innerWidth > 767){
-        setShowSubMenu(newState)
+        if (newState) {
+          // instantly show the menu
+          setShowSubMenu(true)
+        } else {
+          // Handle a possible delay
+          hideMenuTimeoutRef.current = setTimeout(() => {
+            setShowSubMenu(false)
+          }, menuCloseDelay);
+        }
       }
     }
   }

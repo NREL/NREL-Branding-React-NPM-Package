@@ -3,6 +3,7 @@ import { Fragment, ReactNode, Children, cloneElement, ReactElement } from 'react
 import * as PropTypes from 'prop-types';
 import DefaultLogo from './images/nrel-logo@2x-01.png';
 import './style.scss';
+import MenuContext from '../menu/menu-context';
 
 NRELHeader.propTypes = {
   appTitle: PropTypes.any.isRequired,
@@ -10,7 +11,8 @@ NRELHeader.propTypes = {
   isSlim: PropTypes.bool,
   noStick: PropTypes.bool,
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  menuCloseDelay: PropTypes.number,
 }
 
 export type INRELHeaderProps = {
@@ -30,6 +32,11 @@ export type INRELHeaderProps = {
   noStick?: boolean,
   /** Boolean used to turn on a mobile nav when in mobile resolutions */
   hasMobileNav?: boolean,
+    /**
+   * The delay on mouse out of menus and sub menus to until they close, default is 0, can be increased to
+   * make it easier to interact with.
+   */
+    menuCloseDelay?: number,
 }
 
 /**
@@ -43,12 +50,14 @@ function NRELHeader({
   isSlim,
   noStick,
   hasMobileNav,
+  menuCloseDelay = 0,
 }: INRELHeaderProps) {
 
   let slimClass = isSlim ? 'slim' : '';
   let mobileClass = hasMobileNav ? 'mobile-nav' : '';
 
   return (
+    <MenuContext.Provider value={{menuCloseDelay}}>
     <nav
       id="shared-nrel-header"
       className={`nrel-header ${className} ${slimClass} ${mobileClass}`}
@@ -80,6 +89,7 @@ function NRELHeader({
       }
 
     </nav>
+    </MenuContext.Provider>
   );
 }
 
