@@ -97,6 +97,8 @@ function SubMenu({ children, label, toggleMenu, className = '' }: ISubMenuProps)
       const { innerWidth } = window;
       // do no op if on mobile screen size and a hover event
       if (innerWidth > 767) {
+        // Clear any previous close events before handling it
+        clearTimeout(hideMenuTimeoutRef.current);
         if (newState) {
           // instantly show the menu
           setShowSubMenu(true);
