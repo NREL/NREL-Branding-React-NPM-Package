@@ -28,7 +28,11 @@ const SUPPORTED_KEYS = ['Enter'];
 const arrayIsCurrent = (children: React.ReactNode, locationPathname: string, includeDescendants: boolean ): boolean => {
   return Children.toArray(children).some(child => {
     if (isValidElement(child)) {
-      const success = child?.props.to === location.pathname
+      let to = child?.props?.to;
+      try {
+        to = (new URL(`http://test${to}`)).pathname
+      } catch(e) {}
+      const success = to === location.pathname
       if (includeDescendants && child?.props?.children) {
         return success || arrayIsCurrent(child.props.children, locationPathname, includeDescendants)
       } else {
