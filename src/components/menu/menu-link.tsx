@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ReactNode } from 'react';
 import * as PropTypes from 'prop-types';
 import { useHistory, useLocation } from 'react-router-dom';
-
+import { extractJustPathnameFromString } from '../../utils';
 import './style.scss';
 
 MenuLink.propTypes = {
@@ -42,7 +42,7 @@ function MenuLink({
   const history = useHistory();
 
   // Use the pathname by default
-  const isCurrentClass = (isCurrent === undefined && to === location.pathname) ||
+  const isCurrentClass = (isCurrent === undefined && extractJustPathnameFromString(to) === location.pathname) ||
     isCurrent ? 'current' : '' ;
 
   const handleClick = () => {

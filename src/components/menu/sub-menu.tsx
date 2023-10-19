@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ReactNode, useState, isValidElement, ReactElement, Children, cloneElement } from 'react';
 import * as PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-
+import { extractJustPathnameFromString } from '../../utils';
 import Menu from './menu';
 import './style.scss';
 
@@ -28,14 +28,7 @@ const SUPPORTED_KEYS = ['Enter'];
 const arrayIsCurrent = (children: React.ReactNode, locationPathname: string, includeDescendants: boolean ): boolean => {
   return Children.toArray(children).some(child => {
     if (isValidElement(child)) {
-      let to = child?.props?.to;
-      // If it has a to path, assume that it's a string, attempt to extract only
-      // the pathname
-      if (typeof to === 'string') {
-        try {
-          to = (new URL(`http://test${to}`)).pathname
-        } catch(e) {}
-      }
+      const to = extractJustPathnameFromString(child?.props?.to);
       const success = to === locationPathname
       if (includeDescendants && child?.props?.children) {
         return success || arrayIsCurrent(child.props.children, locationPathname, includeDescendants)
