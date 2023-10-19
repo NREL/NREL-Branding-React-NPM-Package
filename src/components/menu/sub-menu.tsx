@@ -32,7 +32,7 @@ const arrayIsCurrent = (children: React.ReactNode, locationPathname: string, inc
       try {
         to = (new URL(`http://test${to}`)).pathname
       } catch(e) {}
-      const success = to === location.pathname
+      const success = to === locationPathname
       if (includeDescendants && child?.props?.children) {
         return success || arrayIsCurrent(child.props.children, locationPathname, includeDescendants)
       } else {
