@@ -29,9 +29,13 @@ const arrayIsCurrent = (children: React.ReactNode, locationPathname: string, inc
   return Children.toArray(children).some(child => {
     if (isValidElement(child)) {
       let to = child?.props?.to;
-      try {
-        to = (new URL(`http://test${to}`)).pathname
-      } catch(e) {}
+      // If it has a to path, assume that it's a string, attempt to extract only
+      // the pathname
+      if (typeof to === 'string') {
+        try {
+          to = (new URL(`http://test${to}`)).pathname
+        } catch(e) {}
+      }
       const success = to === locationPathname
       if (includeDescendants && child?.props?.children) {
         return success || arrayIsCurrent(child.props.children, locationPathname, includeDescendants)
