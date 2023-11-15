@@ -43,7 +43,7 @@
       }
 
       &.active {
-        > .submenu-chevron {
+        > span > .submenu-chevron {
           transform: rotate(90deg);
         }
         > ul.sub-menu {
