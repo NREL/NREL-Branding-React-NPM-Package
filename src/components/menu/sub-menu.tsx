@@ -130,7 +130,7 @@ function SubMenu({ children, label, toggleMenu, className = '' }: ISubMenuProps)
         onClick={toggleShowItems}
         onMouseEnter={handleShowSubMenu(true, true)}
         onMouseLeave={handleShowSubMenu(false, true)}
-        onTouchStart={handleShowSubMenu(!showSubMenu, false)}
+        onTouchEnd={handleShowSubMenu(!showSubMenu, false)}
         className={`desktop-menu menu-item ${isCurrent} ${className} ${
           active || showSubMenu ? 'active' : ''
         } ${showItemsClass}`}
