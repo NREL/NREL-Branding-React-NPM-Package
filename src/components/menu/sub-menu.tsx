@@ -26,17 +26,16 @@ export type ISubMenuProps = {
 const SUPPORTED_KEYS = ['Enter'];
 
 const arrayIsCurrent = (children: React.ReactNode, locationPathname: string, includeDescendants: boolean ): boolean => {
-  return Children.toArray(children).some(child => {
-    if (isValidElement(child)) {
-      const to = extractJustPathnameFromString(child?.props?.to);
-      const success = to === locationPathname
-      if (includeDescendants && child?.props?.children) {
-        return success || arrayIsCurrent(child.props.children, locationPathname, includeDescendants)
-      } else {
-        return success;
-      }
+  return Children.toArray(children).some((child) => {
+    if (!isValidElement(child)) return false;
+
+    const to = extractJustPathnameFromString(child?.props?.to);
+    const success = to === locationPathname
+    if (includeDescendants && child?.props?.['children']) { 
+      return success || arrayIsCurrent(child.props['children'], locationPathname, includeDescendants)
+    } else {
+      return success;
     }
-    return false;
   });
 }
 
