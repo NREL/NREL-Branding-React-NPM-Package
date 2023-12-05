@@ -47,7 +47,7 @@ function MenuLink({
 
   const handleClick = () => {
     history.push(to);
-    toggleMenu && toggleMenu();
+    toggleMenu?.();
   }
 
   return (
