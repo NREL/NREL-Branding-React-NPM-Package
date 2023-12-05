@@ -14,7 +14,7 @@ MenuButton.propTypes = {
 export type IMenuButtonProps = {
   children: ReactNode,
   onClick: (event: MouseEvent) => {},
-  toggleMenu: () => void,
+  toggleMenu?: (e: React.MouseEvent | React.TouchEvent | React.KeyboardEvent) => void,
   className?: string,
   buttonProps?: any,
 }
@@ -39,7 +39,7 @@ function MenuButton({
 
   const handleClick = (e: MouseEvent): void => {
     onClick(e);
-    toggleMenu?.();
+    toggleMenu?.(e);
   }
 
   return (

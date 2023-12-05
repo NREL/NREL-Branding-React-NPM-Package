@@ -20,7 +20,7 @@ export type ISubMenuProps = {
   children: ReactNode;
   label: string;
   className?: string;
-  toggleMenu?: () => void;
+ toggleMenu?: (e: React.MouseEvent | React.TouchEvent | React.KeyboardEvent) => void;
 };
 
 const SUPPORTED_KEYS = ['Enter'];
@@ -66,7 +66,9 @@ function SubMenu({ children, label, toggleMenu, className = '' }: ISubMenuProps)
   /**
    * Only used on Mobile
    */
-  const toggleShowItems: React.MouseEventHandler<HTMLLIElement>  = () => { 
+  const toggleShowItems: React.MouseEventHandler<HTMLLIElement>  = (e) => { 
+    e.stopPropagation();
+    e.preventDefault();
     // avoid edge case of showItems = false and showSubMenu = true
     if (showSubMenu && showItems) {
       setShowSubMenu(false);
@@ -89,7 +91,14 @@ function SubMenu({ children, label, toggleMenu, className = '' }: ISubMenuProps)
     };
   }, [active]);
 
-  const handleShowSubMenu = (newState: boolean, isHoverEvent: boolean) => () => {
+  React.useEffect(() => {
+    // Always close the menu after navigation
+    setShowSubMenu(false);
+  }, [location.pathname])
+
+  const handleShowSubMenu = (newState: boolean, isHoverEvent: boolean) => (e: any) => {
+    e.stopPropagation();
+    e.preventDefault();
     if (!isHoverEvent) {
       setShowSubMenu(newState);
     } else {
@@ -141,7 +150,7 @@ function SubMenu({ children, label, toggleMenu, className = '' }: ISubMenuProps)
         </span>
         <Menu isSubMenu>
           {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
-          {Children.map(children, (child) => cloneElement(child as ReactElement, { toggleMenu }))}
+          {Children.map(children, (child) => cloneElement(child as ReactElement, { toggleMenu: (e: any) => {toggleMenu?.(e); toggleShowItems(e)} }))}
         </Menu>
       </li>
     </>

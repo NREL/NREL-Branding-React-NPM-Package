@@ -14,7 +14,7 @@ MenuLink.propTypes = {
 }
 
 export type IMenuLinkProps = {
-  toggleMenu?: () => void,
+  toggleMenu?: (e: React.MouseEvent | React.TouchEvent | React.KeyboardEvent) => void,
   children: ReactNode,
   to: string,
   className?: string,
@@ -49,7 +49,7 @@ function MenuLink({
     e.stopPropagation();
     e.preventDefault();
     history.push(to);
-    toggleMenu?.();
+    toggleMenu?.(e);
   }
 
   return (
