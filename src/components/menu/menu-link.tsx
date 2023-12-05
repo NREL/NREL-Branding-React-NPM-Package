@@ -51,7 +51,8 @@ function MenuLink({
   }
 
   return (
-    <li tabIndex={0} onKeyDown={(e) => e.key === "Enter" && handleClick()} className={`menu-item ${isCurrentClass} ${className}`} onClick={handleClick}>
+    // TODO: Figure out why onTouchEnd is needed https://github.com/NREL/NREL-Branding-React-NPM-Package/issues/19
+    <li tabIndex={0} onKeyDown={(e) => e.key === "Enter" && handleClick()} className={`menu-item ${isCurrentClass} ${className}`} onClick={handleClick} onTouchEnd={handleClick}>
       <span>{children}</span>
     </li>
   );
