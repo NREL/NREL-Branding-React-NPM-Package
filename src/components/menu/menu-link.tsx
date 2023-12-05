@@ -45,14 +45,16 @@ function MenuLink({
   const isCurrentClass = (isCurrent === undefined && extractJustPathnameFromString(to) === location.pathname) ||
     isCurrent ? 'current' : '' ;
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent | React.TouchEvent | React.KeyboardEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     history.push(to);
     toggleMenu?.();
   }
 
   return (
     // TODO: Figure out why onTouchEnd is needed https://github.com/NREL/NREL-Branding-React-NPM-Package/issues/19
-    <li tabIndex={0} onKeyDown={(e) => e.key === "Enter" && handleClick()} className={`menu-item ${isCurrentClass} ${className}`} onClick={handleClick} onTouchEnd={handleClick}>
+    <li tabIndex={0} onKeyDown={(e) => e.key === "Enter" && handleClick(e)} className={`menu-item ${isCurrentClass} ${className}`} onClick={handleClick} onTouchEnd={handleClick}>
       <span>{children}</span>
     </li>
   );
