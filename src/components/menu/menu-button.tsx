@@ -39,7 +39,7 @@ function MenuButton({
 
   const handleClick = (e: MouseEvent): void => {
     onClick(e);
-    if (toggleMenu) toggleMenu();
+    toggleMenu?.();
   }
 
   return (
