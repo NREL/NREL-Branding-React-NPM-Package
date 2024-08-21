@@ -92,10 +92,10 @@ function NRELFooter({
                         src={youtube}
                       />
                     </a></li>
-                    <li className="list-inline-item"><a href="https://twitter.com/nrel/" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Twitter">
+                    <li className="list-inline-item"><a href="https://x.com/nrel/" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on X">
                       <img
                         aria-hidden
-                        className="social-svg"
+                        className="social-svg social-svg__twitter"
                         src={twitter}
                       />
                     </a></li>
