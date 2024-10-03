@@ -108,7 +108,7 @@ function Menu({
           <div className={`menu-container ${stickyClass} ${menuOpenClass}`}>
             <ul className={`${menuClass} ${className}`}>
               {Children.map(children, child => (
-                cloneElement(child as ReactElement, { toggleMenu })
+                child && cloneElement(child as ReactElement, { toggleMenu })
               ))}
             </ul>
           </div>

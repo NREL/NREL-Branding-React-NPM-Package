@@ -150,7 +150,7 @@ function SubMenu({ children, label, toggleMenu, className = '' }: ISubMenuProps)
         </span>
         <Menu isSubMenu>
           {/* Need to pass through toggleMenu so that the menu closes when a MenuLink is clicked */}
-          {Children.map(children, (child) => cloneElement(child as ReactElement, { toggleMenu: (e: any) => {toggleMenu?.(e); toggleShowItems(e)} }))}
+          {Children.map(children, (child) => child && cloneElement(child as ReactElement, { toggleMenu: (e: any) => {toggleMenu?.(e); toggleShowItems(e)} }))}
         </Menu>
       </li>
     </>
