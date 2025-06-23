@@ -120,12 +120,12 @@ function NRELFooter({
             <hr />
             <div className="mt-4">
               <div className="row">
-                <div className="col-sm-5">
+                <div className="col-sm-5 nrel-footer-logos-container">
                   <a href="https://www.allianceforsustainableenergy.org/">
                     <img className="mr-5 nrel-alliance-logo" src={AllianceLogo} alt="Alliance for Sustainable Energy, LLC" />
                   </a>
                   <a href="https://www.energy.gov">
-                    <img src={DoeLogo} className="nrel-doe-logo" alt="U.S. Department of Energy" />
+                    <DoeLogo className="nrel-doe-logo"/>
                   </a>
                 </div>
                 <div className="col-12 col-sm-7">
