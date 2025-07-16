@@ -129,7 +129,7 @@ function NRELFooter({
                   </a>
                 </div>
                 <div className="col-12 col-sm-7">
-                  <p className="nrel-attr">The National Renewable Energy Laboratory is a national laboratory of the <a href="https://www.energy.gov/">U.S. Department of Energy</a>, <a href="https://www.energy.gov/eere/office-energy-efficiency-renewable-energy">Office of Energy Efficiency and Renewable Energy</a>, operated under Contract No. DE-AC36-08GO28308.</p>
+                  <p className="nrel-attr">NREL is a national laboratory of the <a href="https://www.energy.gov/">U.S. Department of Energy</a>, <a href="https://www.energy.gov/eere/office-energy-efficiency-renewable-energy">Office of Energy Efficiency and Renewable Energy</a>, operated under Contract No. DE-AC36-08GO28308.</p>
                 </div>
               </div>
             </div>
