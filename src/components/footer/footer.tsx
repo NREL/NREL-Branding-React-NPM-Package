@@ -6,6 +6,7 @@ import {
   instagram,
   linkedin,
   twitter,
+  threads,
   youtube,
   AllianceLogo,
   DoeLogo,
@@ -99,6 +100,13 @@ function NRELFooter({
                         src={twitter}
                       />
                     </a></li>
+                    <li className="list-inline-item"><a href="https://www.threads.net/@nationalrenewableenergylab" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Threads">
+                      <img
+                        aria-hidden
+                        className="social-svg social-svg__threads"
+                        src={threads}
+                      />
+                    </a></li>
                   </ul>
                 </div>
               </div>
@@ -120,7 +128,7 @@ function NRELFooter({
             <hr />
             <div className="mt-4">
               <div className="row">
-                <div className="col-sm-5 nrel-footer-logos-container">
+                <div className="col-sm-6 nrel-footer-logos-container">
                   <a href="https://www.allianceforsustainableenergy.org/">
                     <img className="mr-5 nrel-alliance-logo" src={AllianceLogo} alt="Alliance for Sustainable Energy, LLC" />
                   </a>
@@ -128,7 +136,7 @@ function NRELFooter({
                     <DoeLogo className="nrel-doe-logo"/>
                   </a>
                 </div>
-                <div className="col-12 col-sm-7">
+                <div className="col-12 col-sm-6">
                   <p className="nrel-attr">NREL is a national laboratory of the <a href="https://www.energy.gov/">U.S. Department of Energy</a>, <a href="https://www.energy.gov/eere/office-energy-efficiency-renewable-energy">Office of Energy Efficiency and Renewable Energy</a>, operated under Contract No. DE-AC36-08GO28308.</p>
                 </div>
               </div>
