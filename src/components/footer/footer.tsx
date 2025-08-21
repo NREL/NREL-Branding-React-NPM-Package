@@ -42,7 +42,7 @@ function NRELFooter({
           <div className="container">
             <div className="row">
               <div className="col-12 col-lg-5">
-                <a href="http://www.nrel.gov/index.html"><strong>National Renewable Energy Laboratory</strong></a>
+                <a href="http://www.nrel.gov/index.html"><strong>NREL</strong></a>
               </div>
               <div className="col col-lg-7">
                 <div className="d-flex flex-column flex-lg-row justify-content-lg-start global">
