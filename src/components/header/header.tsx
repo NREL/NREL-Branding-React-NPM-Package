@@ -13,6 +13,7 @@ NRELHeader.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   menuCloseDelay: PropTypes.number,
+  logoSection: PropTypes.node,
 }
 
 export type INRELHeaderProps = {
@@ -24,6 +25,7 @@ export type INRELHeaderProps = {
   logoSrc?: string,
   /** A collection of li items to be rendered as navigational items */
   children?: ReactNode,
+  logoSection?: ReactNode,
   /**
    * Boolean for slimmer headers. Mostly used for data-viewer pages
    */
@@ -49,6 +51,7 @@ function NRELHeader({
   children,
   isSlim,
   noStick,
+  logoSection,
   hasMobileNav,
   menuCloseDelay = 0,
 }: INRELHeaderProps) {
@@ -57,38 +60,24 @@ function NRELHeader({
   let mobileClass = hasMobileNav ? 'mobile-nav' : '';
 
   return (
-    <MenuContext.Provider value={{menuCloseDelay}}>
-    <nav
-      id="shared-nrel-header"
-      className={`nrel-header ${className} ${slimClass} ${mobileClass}`}
-    >
-      <header className="vadr-header">
-        <h1 className="vadr-100-title">{appTitle}</h1>
-        <a
-          className="header-link"
-          href="https://www.nrel.gov"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src={logoSrc ? logoSrc : DefaultLogo}
-            width="280px"
-            alt="nrel-logo"
-            className="nrel-logo-image"
-          />
-        </a>
-      </header>
-      {children ?
-        <>
-          {Children.map(children, child => (
-            cloneElement(child as ReactElement, { isSlim, noStick })
-          ))}
-        </>
-        :
-        <Fragment />
-      }
-
-    </nav>
+    <MenuContext.Provider value={{ menuCloseDelay }}>
+      <nav id="shared-nrel-header" className={`nrel-header ${className} ${slimClass} ${mobileClass}`}>
+        <header className="vadr-header">
+          <h1 className="vadr-100-title">{appTitle}</h1>
+          {logoSection ? (
+            logoSection
+          ) : (
+            <a className="header-link" href="https://www.nrel.gov" target="_blank" rel="noopener noreferrer">
+              <img src={logoSrc ? logoSrc : DefaultLogo} width="280px" alt="nrel-logo" className="nrel-logo-image" />
+            </a>
+          )}
+        </header>
+        {children ? (
+          <>{Children.map(children, (child) => cloneElement(child as ReactElement, { isSlim, noStick }))}</>
+        ) : (
+          <Fragment />
+        )}
+      </nav>
     </MenuContext.Provider>
   );
 }
