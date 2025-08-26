@@ -18,28 +18,28 @@ NRELHeader.propTypes = {
 
 export type INRELHeaderProps = {
   /** The title of the app (can be a string or JSX) */
-  appTitle: string,
+  appTitle: string;
   /** Add a class to the header to be used for styling */
-  className?: string,
+  className?: string;
   /** The source of the logo image file. This should probably live in the public dir of the app */
-  logoSrc?: string,
+  logoSrc?: string;
   /** A collection of li items to be rendered as navigational items */
-  children?: ReactNode,
-  logoSection?: ReactNode,
+  children?: ReactNode;
+  logoSection?: ReactNode;
   /**
    * Boolean for slimmer headers. Mostly used for data-viewer pages
    */
-  isSlim?: boolean,
+  isSlim?: boolean;
   /** Boolean determining if the menu bar should not be sticky to the top of the page */
-  noStick?: boolean,
+  noStick?: boolean;
   /** Boolean used to turn on a mobile nav when in mobile resolutions */
-  hasMobileNav?: boolean,
-    /**
+  hasMobileNav?: boolean;
+  /**
    * The delay on mouse out of menus and sub menus to until they close, default is 0, can be increased to
    * make it easier to interact with.
    */
-    menuCloseDelay?: number,
-}
+  menuCloseDelay?: number;
+};
 
 /**
  * Renders a comms friendly header
