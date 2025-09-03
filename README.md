@@ -1,5 +1,3 @@
-
-
 # NREL-branding
 NREL branding components
 - [NREL-branding](#nrel-branding)
@@ -43,6 +41,7 @@ The header component is a wrapper component that can be passed React components 
 | appTitle*    | node    |                | The title of the application                                                              |
 | className    | string  |                | Add a class to be used for styling                                                        |
 | logoSrc      | string  | NREL blue logo | The source of the logo image file. This should probably live in the public dir of the app |
+| logoSection  | node    | NREL logo      | Allow the override of the default logo section with the code passed in                    |
 | children     | node    |                | The nav bar. In general, this will be the `menu` component from this library              |
 | noStick      | boolean | false          | Boolean determining if the menu bar should not be sticky to the top of the page           |
 | isSlim       | boolean | false          | Boolean for slimmer headers. Mostly used dynamically for data-viewer pages                |
