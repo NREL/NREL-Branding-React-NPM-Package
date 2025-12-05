@@ -68,7 +68,7 @@ function NRELHeader({
             logoSection
           ) : (
             <a className="header-link" href="https://www.nrel.gov" target="_blank" rel="noopener noreferrer">
-              <img src={logoSrc ? logoSrc : DefaultLogo} width="280px" alt="nrel-logo" className="nrel-logo-image" />
+              <img src={logoSrc ? logoSrc : DefaultLogo} width="280px" alt="nlr-logo" className="nrel-logo-image" />
             </a>
           )}
         </header>

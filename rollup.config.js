@@ -20,7 +20,11 @@ export default {
     sass({ insert: true }),
     typescript(),
     svgr(),
-    url(),
+    url({
+      // Force all images to be inlined as base64 data URLs
+      limit: Infinity,
+      include: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg']
+    }),
   ],
   external: ['react', 'react-dom']
 }
