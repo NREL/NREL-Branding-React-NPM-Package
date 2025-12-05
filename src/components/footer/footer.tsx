@@ -42,7 +42,7 @@ function NRELFooter({
           <div className="container">
             <div className="row">
               <div className="col-12 col-lg-5">
-                <a href="http://www.nrel.gov/index.html"><strong>NREL</strong></a>
+                <a href="http://www.nrel.gov/index.html"><strong>National Laboratory of the Rockies</strong></a>
               </div>
               <div className="col col-lg-7">
                 <div className="d-flex flex-column flex-lg-row justify-content-lg-start global">
@@ -65,42 +65,42 @@ function NRELFooter({
                 <div className="mt-2"><a href="http://www.nrel.gov/news/subscribe.html">Subscribe</a></div>
                 <div className="mt-3">
                   <ul className="social-links list-inline">
-                    <li className="list-inline-item"><a href="https://www.facebook.com/nationalrenewableenergylab" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Facebook">
+                    <li className="list-inline-item"><a href="https://www.facebook.com/nationalrenewableenergylab" rel="noopener noreferrer" target="_blank" aria-label="Follow NRL on Facebook">
                       <img
                         aria-hidden
                         className="social-svg"
                         src={facebook}
                       />
                     </a></li>
-                    <li className="list-inline-item"><a href="https://www.instagram.com/nationalrenewableenergylab/" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Instagram">
+                    <li className="list-inline-item"><a href="https://www.instagram.com/nationalrenewableenergylab/" rel="noopener noreferrer" target="_blank" aria-label="Follow NRL on Instagram">
                       <img
                         aria-hidden
                         className="social-svg"
                         src={instagram}
                       />
                     </a></li>
-                    <li className="list-inline-item"><a href="https://www.linkedin.com/company/national-renewable-energy-laboratory" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Linked In">
+                    <li className="list-inline-item"><a href="https://www.linkedin.com/company/national-renewable-energy-laboratory" rel="noopener noreferrer" target="_blank" aria-label="Follow NRL on Linked In">
                       <img
                         aria-hidden
                         className="social-svg"
                         src={linkedin}
                       />
                     </a></li>
-                    <li className="list-inline-item"><a href="https://www.youtube.com/user/NRELPR/" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on YouTube">
+                    <li className="list-inline-item"><a href="https://www.youtube.com/user/NRELPR/" rel="noopener noreferrer" target="_blank" aria-label="Follow NRL on YouTube">
                       <img
                         aria-hidden
                         className="social-svg"
                         src={youtube}
                       />
                     </a></li>
-                    <li className="list-inline-item"><a href="https://x.com/nrel/" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on X">
+                    <li className="list-inline-item"><a href="https://x.com/nrel/" rel="noopener noreferrer" target="_blank" aria-label="Follow NRL on X">
                       <img
                         aria-hidden
                         className="social-svg social-svg__twitter"
                         src={twitter}
                       />
                     </a></li>
-                    <li className="list-inline-item"><a href="https://www.threads.net/@nationalrenewableenergylab" rel="noopener noreferrer" target="_blank" aria-label="Follow NREL on Threads">
+                    <li className="list-inline-item"><a href="https://www.threads.net/@nationalrenewableenergylab" rel="noopener noreferrer" target="_blank" aria-label="Follow NRL on Threads">
                       <img
                         aria-hidden
                         className="social-svg social-svg__threads"
@@ -137,7 +137,7 @@ function NRELFooter({
                   </a>
                 </div>
                 <div className="col-12 col-sm-6">
-                  <p className="nrel-attr">NREL is a national laboratory of the <a href="https://www.energy.gov/">U.S. Department of Energy</a>, <a href="https://www.energy.gov/eere/office-energy-efficiency-renewable-energy">Office of Energy Efficiency and Renewable Energy</a>, operated under Contract No. DE-AC36-08GO28308.</p>
+                  <p className="nrel-attr">The National Laboratory of the Rockies is a national laboratory of the <a href="https://www.energy.gov/">U.S. Department of Energy</a>, <a href="https://www.energy.gov/eere/office-energy-efficiency-renewable-energy">Office of Critical Minerals and Energy Innovation</a>, operated under Contract No. DE-AC36-08GO28308.</p>
                 </div>
               </div>
             </div>
