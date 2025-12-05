@@ -1,6 +1,6 @@
 {
   "name": "nrel-branding-react",
-  "version": "1.0.49",
+  "version": "1.0.50",
   "description": "NLR branding components",
   "main": "dist/index.js",
   "dependencies": {},
