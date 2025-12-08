@@ -137,7 +137,7 @@ function NRELFooter({
                   </a>
                 </div>
                 <div className="col-12 col-sm-6">
-                  <p className="nrel-attr">The National Laboratory of the Rockies is a national laboratory of the <a href="https://www.energy.gov/">U.S. Department of Energy</a>, <a href="https://www.energy.gov/eere/office-energy-efficiency-renewable-energy">Office of Critical Minerals and Energy Innovation</a>, operated under Contract No. DE-AC36-08GO28308.</p>
+                  <p className="nrel-attr">The National Laboratory of the Rockies is a national laboratory of the U.S. Department of Energy, Office of Critical Minerals and Energy Innovation, operated under Contract No. DE-AC36-08GO28308.</p>
                 </div>
               </div>
             </div>
